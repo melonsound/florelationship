@@ -10,6 +10,18 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$landingClass = "";
+if ($url == "http://floralationship/")
+{
+	$landingClass = "landing";
+}
+else
+{
+	$landingClass = "";
+}
+
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -23,7 +35,7 @@ AppAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
 	</head>
-    <body class="landing">
+    <body class="<?= $landingClass ?>">
     <?php $this->beginBody() ?>
     
 <!-- Header -->
@@ -35,8 +47,8 @@ AppAsset::register($this);
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/generic">Generic</a></li>
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 			</nav>
@@ -73,6 +85,6 @@ AppAsset::register($this);
 			</footer>
     <?php $this->endBody() ?>
     </body>
-
+	
 </html>
 <?php $this->endPage() ?>
