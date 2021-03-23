@@ -130,4 +130,8 @@ class SiteController extends Controller
     {
         return $this->render('generic');
     }
+    public function actionElements()
+    {
+        return $this->render('elements');
+    }
 }

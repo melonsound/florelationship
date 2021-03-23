@@ -12,13 +12,16 @@ use app\assets\AppAsset;
 
 $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $landingClass = "";
+$headerClass = "";
 if ($url == "http://floralationship/")
 {
 	$landingClass = "landing";
+	$headerClass = "alt";
 }
 else
 {
 	$landingClass = "";
+	$headerClass = "";
 }
 
 
@@ -39,8 +42,8 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
     
 <!-- Header -->
-<header id="header" class="alt">
-				<h1><a href="index.html">Retrospect</a></h1>
+<header id="header" class="<?= $headerClass ?>">
+				<h1><a href="/">Retrospect</a></h1>
 				<a href="#nav">Menu</a>
 			</header>
 
@@ -48,8 +51,8 @@ AppAsset::register($this);
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="/">Home</a></li>
-					<li><a href="/generic">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="/web/site/generic">Generic</a></li>
+					<li><a href="/web/site/elements">Elements</a></li>
 				</ul>
 			</nav>
 
